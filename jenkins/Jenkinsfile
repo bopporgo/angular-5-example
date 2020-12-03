@@ -1,14 +1,12 @@
-pipeline{
+node {
   environment {
          registry = "Angulartest"
         registryCredential = 'locrepcred'
         dockerImage = ''
         def nodeHome = tool 'node8'
-    
+    env.PATH = "${nodeHome}/bin:${env.PATH}"
             }
-    
-  agent none
-  stages{
+       stages{
     stage ('checkout'){
       steps{
         checkout scm
