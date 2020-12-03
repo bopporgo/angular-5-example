@@ -1,5 +1,11 @@
 pipeline{
-  agent { label 'node8' }
+  environment {
+                registry = "Angulartest"
+        registryCredential = 'locrepcred'
+        dockerImage = ''
+        def nodeHome = tool 'node8'
+    env.PATH = "${nodeHome}/bin:${env.PATH}"
+            }
   stages{
     stage ('checkout'){
       steps{
