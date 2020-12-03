@@ -57,5 +57,11 @@ node {
     
       }
   }
+   stage ('run latest Image'){
+                        
+               sh './angulartest.sh'
+  
   }
+  
+  
 }
