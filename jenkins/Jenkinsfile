@@ -25,12 +25,8 @@ node {
         sh '''
           $(npm bin)/ng test --single-run --browsers Chrome_no_sandbox
         '''
+           junit "test-results.xml"
       
-      post {
-          always {
-            junit "test-results.xml"
-          }
-      }
     }
     stage ('code quality'){
       
