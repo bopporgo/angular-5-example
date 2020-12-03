@@ -1,6 +1,4 @@
 pipeline{
-  
-  agent any 
   environment {
          registry = "Angulartest"
         registryCredential = 'locrepcred'
@@ -8,6 +6,8 @@ pipeline{
         def nodeHome = tool 'node8'
     env.PATH = "${nodeHome}/bin:${env.PATH}"
             }
+    
+  agent none
   stages{
     stage ('checkout'){
       steps{
