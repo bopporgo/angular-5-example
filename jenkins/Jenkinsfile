@@ -6,7 +6,7 @@ node {
         def nodeHome = tool 'node8'
     env.PATH = "${nodeHome}/bin:${env.PATH}"
             }
-       stages{
+      
     stage ('checkout'){
       steps{
         checkout scm
@@ -51,4 +51,4 @@ node {
       }
     }
   }
-}
+
