@@ -1,6 +1,8 @@
 pipeline{
+  
+  agent any 
   environment {
-                registry = "Angulartest"
+         registry = "Angulartest"
         registryCredential = 'locrepcred'
         dockerImage = ''
         def nodeHome = tool 'node8'
