@@ -38,5 +38,23 @@ node {
         sh '$(npm bin)/ng build --prod --build-optimizer'
      
     }
+  stage  ('docker image') {
+    
+     script {
+        registry = "Angulartest"
+        registryCredential = 'locrepcred'
+        dockerImage = ''
+                dockerImage =  docker.build registry  
+     }
+       
+       stage ('push to local-repo') {
+              registry = "Angulartest"
+              registryCredential = 'locrepcred'
+                script {
+                  docker.withRegistry ('http://192.168.5.64:5000',registryCredential) { 
+                  dockerImage.push()
+                  }
+    
       }
-
+  }
+  }
