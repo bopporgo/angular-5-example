@@ -1,6 +1,6 @@
 node {
   environment {
-         registry = "Angulartest"
+         registry = "angulartest"
         registryCredential = 'locrepcred'
         dockerImage = ''
         def nodeHome = tool 'node8'
@@ -41,14 +41,14 @@ node {
   stage  ('docker image') {
     
      script {
-        registry = "Angulartest"
+        registry = "angulartest"
         registryCredential = 'locrepcred'
         dockerImage = ''
                 dockerImage =  docker.build registry  
      }
        
        stage ('push to local-repo') {
-              registry = "Angulartest"
+              registry = "angulartest"
               registryCredential = 'locrepcred'
                 script {
                   docker.withRegistry ('http://192.168.5.64:5000',registryCredential) { 
